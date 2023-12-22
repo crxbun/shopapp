@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href = "../static/styles.css">
+        <title>Shopapp Login</title>
+    </head>
+
+    <body>
+        <!-- temporary ugly login -->
+        <div class="login-container">
+            <h1>Shopapp</h1>
+            <form action="/login" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                {% if dne_error %}
+                <p class="error" style="color: red">{{ dne_error }}</p>
+                {% endif %}
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+
+                {% if incorrectpw_error %}
+                <p class="error" style="color: red">{{ incorrectpw_error }}</p>
+                {% endif %}
+            </form>
+
+            <p>Don't have an account? <a href="/create_account">Create Account</a></p>
+            <p>Forgot your password? <a href="/forgot_password">Reset Password</a></p>
+        </div>
+    </body>
+</html>
